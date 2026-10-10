@@ -1,0 +1,514 @@
+{
+  "generated_at": "2026-10-07",
+  "scan_id": "SCAN-20261007-001",
+  "company": "러닝브릿지(가상)",
+  "legal_cap": {
+    "law_basis": "개인정보 보호법 제64조의2(과징금의 부과), 2026-09-11 시행 개정법",
+    "relevant_revenue_krw": 5000000000,
+    "rate": 0.03,
+    "cap_krw": 150000000,
+    "basis": "전체 매출액에서 위반과 무관한 매출을 뺀 금액의 3%",
+    "special_10pct": {
+      "cap_krw": 500000000,
+      "possible": false,
+      "conditions": [
+        {
+          "name": "고의·중과실로 3년 내 같은 유형 반복 위반",
+          "possible": false,
+          "why": "고객사 프로필의 3년 내 위반 이력 기준. 고의·중과실 여부는 도구가 판단하지 않음"
+        },
+        {
+          "name": "고의·중과실로 피해 1천만 명 이상",
+          "possible": false,
+          "why": "정보주체 120,000명 → 1천만 명 기준 미달"
+        },
+        {
+          "name": "시정명령 불이행으로 유출",
+          "possible": false,
+          "why": "고객사 프로필의 시정명령 미이행 여부 기준"
+        }
+      ],
+      "note": "세 요건 중 하나에 해당할 때만 적용. 보고서에는 '이 조건이 붙으면' 시나리오로만 표기"
+    },
+    "public_institution": false
+  },
+  "reductions": {
+    "investment": {
+      "max_rate": 0.4,
+      "has_record": false,
+      "note": "보호 투자·보호체계 운영·추가 안전조치를 고려해 기준금액의 최대 40% 감경. 위반 전 3개 사업연도 노력을 보며 고의·중과실 위반은 제외",
+      "illustration_on_cap_krw": 90000000,
+      "illustration_note": "법정 상한에 최대 감경률을 적용한 예시값. 실제 감경은 기준금액에 적용됨"
+    },
+    "isms_p": {
+      "max_rate": 0.3,
+      "certified": false,
+      "note": "ISMS-P 인증에 따른 감경 상한은 최대 30%(개정 전 50%). 중요 개인정보처리자 대상 인증 의무화는 2027-07-01 시행 예정"
+    }
+  },
+  "violations": [
+    {
+      "law_code": "PIPA-29",
+      "article": "제29조",
+      "article_title": "안전조치의무",
+      "finding_ids": [
+        "SCAN-20261007-001-W-01-LOCALHOST-5000",
+        "SCAN-20261007-001-W-02-LOCALHOST-5000",
+        "SCAN-20261007-001-AUTH-01-LOCALHOST-5000",
+        "SCAN-20261007-001-W-05-LOCALHOST-5000",
+        "SCAN-20261007-001-W-06-LOCALHOST-5000",
+        "SCAN-20261007-001-PWRECOVERY-01-LOCALHOST-5000"
+      ]
+    }
+  ],
+  "case_evidence": {
+    "fine_distribution": {
+      "count": 15,
+      "min_krw": 3290000,
+      "median_krw": 503000000,
+      "max_krw": 423575000000,
+      "case_ids": [
+        "PIPC-2024-002",
+        "PIPC-2023-004",
+        "PIPC-2023-003",
+        "PIPC-2023-001",
+        "PIPC-2026-010",
+        "PIPC-2024-001",
+        "PIPC-2026-002",
+        "PIPC-2025-001",
+        "PIPC-2026-001",
+        "PIPC-2026-005",
+        "PIPC-2026-004",
+        "PIPC-2024-003",
+        "PIPC-2024-004",
+        "PIPC-2026-006",
+        "PIPC-2026-011"
+      ],
+      "over_client_cap_count": 10,
+      "median_exceeds_client_cap": true,
+      "warning": "유사 사례 중앙값이 이 고객사의 법정 상한보다 큼. 사례 기업이 더 커서 생긴 차이이므로 사례 금액을 고객사 예상 과징금처럼 쓰면 안 됨 (상한을 넘는 과징금은 불가능)"
+    },
+    "per_finding": {
+      "SCAN-20261007-001-IL-COMMENT-01-LOCALHOST-5000": [
+        {
+          "case_id": "PIPC-2023-008",
+          "match_level": "동일 결함 사례",
+          "org": "대구한의대학교",
+          "fine_krw": 0,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2024-003",
+          "match_level": "동일 결함 사례",
+          "org": "㈜골프존",
+          "fine_krw": 7504000000,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2026-002",
+          "match_level": "동일 결함 사례",
+          "org": "강북구청",
+          "fine_krw": 378000000,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2024-004",
+          "match_level": "동일 결함 사례",
+          "org": "㈜카카오",
+          "fine_krw": 15141960000,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2024-002",
+          "match_level": "같은 취약점 유형",
+          "org": "현대자동차㈜",
+          "fine_krw": 3290000,
+          "law_regime": "구법"
+        }
+      ],
+      "SCAN-20261007-001-W-01-LOCALHOST-5000": [
+        {
+          "case_id": "PIPC-2023-004",
+          "match_level": "관련 통제 사례",
+          "org": "숙명여자대학교",
+          "fine_krw": 37500000,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2026-005",
+          "match_level": "관련 통제 사례",
+          "org": "듀오정보 주식회사",
+          "fine_krw": 1197000000,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2025-001",
+          "match_level": "참고 사례",
+          "org": "㈜동행복권",
+          "fine_krw": 503000000,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2024-004",
+          "match_level": "참고 사례",
+          "org": "㈜카카오",
+          "fine_krw": 15141960000,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2023-001",
+          "match_level": "참고 사례",
+          "org": "인크루트㈜",
+          "fine_krw": 70600000,
+          "law_regime": "구법"
+        }
+      ],
+      "SCAN-20261007-001-W-02-LOCALHOST-5000": [
+        {
+          "case_id": "PIPC-2023-004",
+          "match_level": "관련 통제 사례",
+          "org": "숙명여자대학교",
+          "fine_krw": 37500000,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2026-005",
+          "match_level": "관련 통제 사례",
+          "org": "듀오정보 주식회사",
+          "fine_krw": 1197000000,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2025-001",
+          "match_level": "참고 사례",
+          "org": "㈜동행복권",
+          "fine_krw": 503000000,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2026-002",
+          "match_level": "참고 사례",
+          "org": "강북구청",
+          "fine_krw": 378000000,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2025-005",
+          "match_level": "참고 사례",
+          "org": "SK텔레콤(주)",
+          "fine_krw": 134791000000,
+          "law_regime": "구법"
+        }
+      ],
+      "SCAN-20261007-001-AUTH-01-LOCALHOST-5000": [
+        {
+          "case_id": "PIPC-2026-006",
+          "match_level": "동일 결함 사례",
+          "org": "루이비통코리아(유)",
+          "fine_krw": 21385000000,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2023-001",
+          "match_level": "동일 결함 사례",
+          "org": "인크루트㈜",
+          "fine_krw": 70600000,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2023-004",
+          "match_level": "동일 결함 사례",
+          "org": "숙명여자대학교",
+          "fine_krw": 37500000,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2026-010",
+          "match_level": "동일 결함 사례",
+          "org": "㈜엔라이즈",
+          "fine_krw": 118440000,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2026-011",
+          "match_level": "동일 결함 사례",
+          "org": "쿠팡 주식회사 (유출 관련)",
+          "fine_krw": 423575000000,
+          "law_regime": "구법"
+        }
+      ],
+      "SCAN-20261007-001-W-05-LOCALHOST-5000": [
+        {
+          "case_id": "PIPC-2023-003",
+          "match_level": "관련 통제 사례",
+          "org": "경북대학교",
+          "fine_krw": 57500000,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2026-004",
+          "match_level": "관련 통제 사례",
+          "org": "㈜케이에스한국고용정보",
+          "fine_krw": 3537000000,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2026-006",
+          "match_level": "관련 통제 사례",
+          "org": "루이비통코리아(유)",
+          "fine_krw": 21385000000,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2026-001",
+          "match_level": "관련 통제 사례",
+          "org": "공무원연금공단",
+          "fine_krw": 532000000,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2023-002",
+          "match_level": "관련 통제 사례",
+          "org": "㈜BSC",
+          "fine_krw": 0,
+          "law_regime": "구법"
+        }
+      ],
+      "SCAN-20261007-001-W-06-LOCALHOST-5000": [
+        {
+          "case_id": "PIPC-2023-008",
+          "match_level": "관련 통제 사례",
+          "org": "대구한의대학교",
+          "fine_krw": 0,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2026-001",
+          "match_level": "관련 통제 사례",
+          "org": "공무원연금공단",
+          "fine_krw": 532000000,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2026-006",
+          "match_level": "관련 통제 사례",
+          "org": "루이비통코리아(유)",
+          "fine_krw": 21385000000,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2026-004",
+          "match_level": "관련 통제 사례",
+          "org": "㈜케이에스한국고용정보",
+          "fine_krw": 3537000000,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2024-001",
+          "match_level": "관련 통제 사례",
+          "org": "한화호텔앤드리조트㈜",
+          "fine_krw": 185310000,
+          "law_regime": "구법"
+        }
+      ],
+      "SCAN-20261007-001-PWRECOVERY-01-LOCALHOST-5000": [
+        {
+          "case_id": "PIPC-2025-001",
+          "match_level": "동일 결함 사례",
+          "org": "㈜동행복권",
+          "fine_krw": 503000000,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2023-004",
+          "match_level": "관련 통제 사례",
+          "org": "숙명여자대학교",
+          "fine_krw": 37500000,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2026-006",
+          "match_level": "관련 통제 사례",
+          "org": "루이비통코리아(유)",
+          "fine_krw": 21385000000,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2026-010",
+          "match_level": "관련 통제 사례",
+          "org": "㈜엔라이즈",
+          "fine_krw": 118440000,
+          "law_regime": "구법"
+        },
+        {
+          "case_id": "PIPC-2023-001",
+          "match_level": "관련 통제 사례",
+          "org": "인크루트㈜",
+          "fine_krw": 70600000,
+          "law_regime": "구법"
+        }
+      ]
+    },
+    "note": "참고 사례를 뺀 등급(동일 결함·같은 유형·관련 통제)의 처분 사례 중 과징금이 있는 것만 집계. 사례 기업과 고객사의 매출 규모가 달라 예상 부과액이 아니라 '유사 사례에서 실제로 나온 금액'임"
+  },
+  "priority": {
+    "ranked": [
+      {
+        "finding_id": "SCAN-20261007-001-IL-COMMENT-01-LOCALHOST-5000",
+        "title": "주석 내 정보 누출",
+        "severity": "상",
+        "best_evidence": "동일 결함 사례",
+        "handles_personal_data": true,
+        "score": 4.5,
+        "rank": 1
+      },
+      {
+        "finding_id": "SCAN-20261007-001-AUTH-01-LOCALHOST-5000",
+        "title": "불충분한 인증 절차",
+        "severity": "상",
+        "best_evidence": "동일 결함 사례",
+        "handles_personal_data": true,
+        "score": 4.5,
+        "rank": 2
+      },
+      {
+        "finding_id": "SCAN-20261007-001-PWRECOVERY-01-LOCALHOST-5000",
+        "title": "취약한 비밀번호 복구 절차",
+        "severity": "상",
+        "best_evidence": "동일 결함 사례",
+        "handles_personal_data": true,
+        "score": 4.5,
+        "rank": 3
+      },
+      {
+        "finding_id": "SCAN-20261007-001-W-01-LOCALHOST-5000",
+        "title": "유추 가능한 비밀번호",
+        "severity": "상",
+        "best_evidence": "관련 통제 사례",
+        "handles_personal_data": true,
+        "score": 3.75,
+        "rank": 4
+      },
+      {
+        "finding_id": "SCAN-20261007-001-W-02-LOCALHOST-5000",
+        "title": "낮은 복잡도의 비밀번호 정책",
+        "severity": "상",
+        "best_evidence": "관련 통제 사례",
+        "handles_personal_data": true,
+        "score": 3.75,
+        "rank": 5
+      },
+      {
+        "finding_id": "SCAN-20261007-001-W-05-LOCALHOST-5000",
+        "title": "타인 문의글 열람",
+        "severity": "상",
+        "best_evidence": "관련 통제 사례",
+        "handles_personal_data": true,
+        "score": 3.75,
+        "rank": 6
+      },
+      {
+        "finding_id": "SCAN-20261007-001-W-06-LOCALHOST-5000",
+        "title": "타인 문의글 댓글 작성",
+        "severity": "상",
+        "best_evidence": "관련 통제 사례",
+        "handles_personal_data": true,
+        "score": 3.75,
+        "rank": 7
+      }
+    ],
+    "top_n_reduction": [
+      {
+        "top_n": 1,
+        "risk_reduction_pct": 15.8
+      },
+      {
+        "top_n": 2,
+        "risk_reduction_pct": 31.6
+      },
+      {
+        "top_n": 3,
+        "risk_reduction_pct": 47.4
+      },
+      {
+        "top_n": 4,
+        "risk_reduction_pct": 60.5
+      },
+      {
+        "top_n": 5,
+        "risk_reduction_pct": 73.7
+      },
+      {
+        "top_n": 6,
+        "risk_reduction_pct": 86.8
+      },
+      {
+        "top_n": 7,
+        "risk_reduction_pct": 100.0
+      }
+    ],
+    "formula": "점수 = 심각도(상3·중2·하1) × 개인정보 자산(예 1.0·아니오 0.3) × (1 + 0.5 × 사례 근거(동일 결함 1.0·같은 유형 0.7·관련 통제 0.5·참고 0.3·없음 0.2))"
+  },
+  "excluded": [
+    {
+      "finding_id": "SCAN-20261007-001-IL-COMMENT-01-LOCALHOST-5000",
+      "reason": "관련 법 조항이 없어 법적 노출액에서 제외 (ISMS-P 심사 리스크로만 다룸)"
+    },
+    {
+      "finding_id": "SCAN-20261007-001-IL-COMMENT-02-LOCALHOST-5000",
+      "reason": "상태가 '양호'라 노출액 계산에서 제외"
+    },
+    {
+      "finding_id": "SCAN-20261007-001-IL-COMMENT-03-LOCALHOST-5000",
+      "reason": "상태가 '양호'라 노출액 계산에서 제외"
+    },
+    {
+      "finding_id": "SCAN-20261007-001-IL-COMMENT-04-LOCALHOST-5000",
+      "reason": "상태가 '양호'라 노출액 계산에서 제외"
+    },
+    {
+      "finding_id": "SCAN-20261007-001-IL-COMMENT-05-LOCALHOST-5000",
+      "reason": "상태가 '양호'라 노출액 계산에서 제외"
+    },
+    {
+      "finding_id": "SCAN-20261007-001-IL-COMMENT-06-LOCALHOST-5000",
+      "reason": "상태가 '양호'라 노출액 계산에서 제외"
+    },
+    {
+      "finding_id": "SCAN-20261007-001-IL-COMMENT-07-LOCALHOST-5000",
+      "reason": "상태가 '양호'라 노출액 계산에서 제외"
+    },
+    {
+      "finding_id": "SCAN-20261007-001-IL-COMMENT-08-LOCALHOST-5000",
+      "reason": "상태가 '양호'라 노출액 계산에서 제외"
+    },
+    {
+      "finding_id": "SCAN-20261007-001-IL-COMMENT-09-LOCALHOST-5000",
+      "reason": "상태가 '양호'라 노출액 계산에서 제외"
+    },
+    {
+      "finding_id": "SCAN-20261007-001-IL-MASKING-01-LOCALHOST-5000",
+      "reason": "상태가 '양호'라 노출액 계산에서 제외"
+    },
+    {
+      "finding_id": "SCAN-20261007-001-IL-MASKING-02-LOCALHOST-5000",
+      "reason": "상태가 '양호'라 노출액 계산에서 제외"
+    },
+    {
+      "finding_id": "SCAN-20261007-001-W-03-LOCALHOST-5000",
+      "reason": "상태가 '양호'라 노출액 계산에서 제외"
+    },
+    {
+      "finding_id": "SCAN-20261007-001-W-04-LOCALHOST-5000",
+      "reason": "상태가 '양호'라 노출액 계산에서 제외"
+    }
+  ],
+  "assumptions": [
+    "고객사 프로필(매출·정보주체 수 등)은 모의 교육 플랫폼 가정값",
+    "법정 상한은 최대치이며 예상 부과액이 아님",
+    "같은 조항에 걸린 취약점이 여러 개여도 법정 상한은 한 번만 적용",
+    "유사 사례 금액은 대부분 개정법 시행(2026-09-11) 이전 구법 기준 처분",
+    "투자 감경 예시값은 법정 상한에 최대 감경률을 적용한 것으로, 실제 감경은 기준금액에 적용됨",
+    "우선순위 점수는 조치 순서를 정하기 위한 상대 점수이며 금액이 아님"
+  ]
+}

@@ -1,0 +1,751 @@
+[
+ {
+  "scan": "SCAN-2026-001",
+  "cond": "LLM 단독",
+  "run": 0,
+  "sec": 9.85,
+  "prompt_tokens": 13929,
+  "completion_tokens": 1377,
+  "errors": {
+   "없는 ID": [
+    "note SCAN-2026-001-W-06-WEB01"
+   ],
+   "부적합 사례": [
+    "PIPC-2024-003",
+    "PIPC-2026-002",
+    "PIPC-2023-003"
+   ],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-001",
+  "cond": "LLM 단독",
+  "run": 1,
+  "sec": 8.73,
+  "prompt_tokens": 13929,
+  "completion_tokens": 1151,
+  "errors": {
+   "없는 ID": [
+    "note SCAN-2026-001-W-06-WEB01"
+   ],
+   "부적합 사례": [
+    "PIPC-2023-003"
+   ],
+   "누락": [
+    "roadmap SCAN-2026-001-W-04-WEB01"
+   ],
+   "출처 없는 금액": [
+    "423억 원"
+   ],
+   "문장 속 금액": [
+    "423억 원"
+   ]
+  }
+ },
+ {
+  "scan": "SCAN-2026-001",
+  "cond": "LLM 단독",
+  "run": 2,
+  "sec": 8.74,
+  "prompt_tokens": 13929,
+  "completion_tokens": 1186,
+  "errors": {
+   "없는 ID": [
+    "note SCAN-2026-001-W-06-WEB01"
+   ],
+   "부적합 사례": [
+    "PIPC-2024-003",
+    "PIPC-2026-002"
+   ],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-001",
+  "cond": "LLM 단독",
+  "run": 3,
+  "sec": 8.66,
+  "prompt_tokens": 13929,
+  "completion_tokens": 1129,
+  "errors": {
+   "없는 ID": [
+    "note SCAN-2026-001-W-06-WEB01"
+   ],
+   "부적합 사례": [
+    "PIPC-2026-002"
+   ],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-001",
+  "cond": "LLM 단독",
+  "run": 4,
+  "sec": 9.23,
+  "prompt_tokens": 13929,
+  "completion_tokens": 1180,
+  "errors": {
+   "없는 ID": [
+    "note SCAN-2026-001-W-06-WEB01"
+   ],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-001",
+  "cond": "엔진(검증 전)",
+  "run": 0,
+  "sec": 13.07,
+  "prompt_tokens": 7596,
+  "completion_tokens": 1333,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-001",
+  "cond": "엔진(최종)",
+  "run": 0,
+  "sec": 13.07,
+  "prompt_tokens": 7596,
+  "completion_tokens": 1333,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-001",
+  "cond": "엔진(검증 전)",
+  "run": 1,
+  "sec": 12.27,
+  "prompt_tokens": 7596,
+  "completion_tokens": 1379,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-001",
+  "cond": "엔진(최종)",
+  "run": 1,
+  "sec": 12.27,
+  "prompt_tokens": 7596,
+  "completion_tokens": 1379,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-001",
+  "cond": "엔진(검증 전)",
+  "run": 2,
+  "sec": 11.92,
+  "prompt_tokens": 7596,
+  "completion_tokens": 1299,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-001",
+  "cond": "엔진(최종)",
+  "run": 2,
+  "sec": 11.92,
+  "prompt_tokens": 7596,
+  "completion_tokens": 1299,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-001",
+  "cond": "엔진(검증 전)",
+  "run": 3,
+  "sec": 12.93,
+  "prompt_tokens": 7596,
+  "completion_tokens": 1354,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-001",
+  "cond": "엔진(최종)",
+  "run": 3,
+  "sec": 12.93,
+  "prompt_tokens": 7596,
+  "completion_tokens": 1354,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-001",
+  "cond": "엔진(검증 전)",
+  "run": 4,
+  "sec": 11.52,
+  "prompt_tokens": 7596,
+  "completion_tokens": 1331,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-001",
+  "cond": "엔진(최종)",
+  "run": 4,
+  "sec": 11.52,
+  "prompt_tokens": 7596,
+  "completion_tokens": 1331,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-002",
+  "cond": "LLM 단독",
+  "run": 0,
+  "sec": 4.91,
+  "prompt_tokens": 4998,
+  "completion_tokens": 667,
+  "errors": {
+   "없는 ID": [
+    "note SCAN-2026-002-W-02-WEB01"
+   ],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": [
+    "213억 원"
+   ]
+  }
+ },
+ {
+  "scan": "SCAN-2026-002",
+  "cond": "LLM 단독",
+  "run": 1,
+  "sec": 4.58,
+  "prompt_tokens": 4998,
+  "completion_tokens": 569,
+  "errors": {
+   "없는 ID": [
+    "finding SCAN-2026-002-W-02-WEB01",
+    "note SCAN-2026-002-W-02-WEB01"
+   ],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": [
+    "213억 원"
+   ]
+  }
+ },
+ {
+  "scan": "SCAN-2026-002",
+  "cond": "LLM 단독",
+  "run": 2,
+  "sec": 5.14,
+  "prompt_tokens": 4998,
+  "completion_tokens": 606,
+  "errors": {
+   "없는 ID": [
+    "finding SCAN-2026-002-W-02-WEB01",
+    "note SCAN-2026-002-W-02-WEB01"
+   ],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-002",
+  "cond": "LLM 단독",
+  "run": 3,
+  "sec": 4.91,
+  "prompt_tokens": 4998,
+  "completion_tokens": 610,
+  "errors": {
+   "없는 ID": [
+    "finding SCAN-2026-002-W-02-WEB01",
+    "note SCAN-2026-002-W-02-WEB01"
+   ],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": [
+    "5,750만 원"
+   ]
+  }
+ },
+ {
+  "scan": "SCAN-2026-002",
+  "cond": "LLM 단독",
+  "run": 4,
+  "sec": 4.9,
+  "prompt_tokens": 4998,
+  "completion_tokens": 681,
+  "errors": {
+   "없는 ID": [
+    "note SCAN-2026-002-W-02-WEB01"
+   ],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": [
+    "213억 원"
+   ]
+  }
+ },
+ {
+  "scan": "SCAN-2026-002",
+  "cond": "엔진(검증 전)",
+  "run": 0,
+  "sec": 4.98,
+  "prompt_tokens": 3105,
+  "completion_tokens": 515,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-002",
+  "cond": "엔진(최종)",
+  "run": 0,
+  "sec": 4.98,
+  "prompt_tokens": 3105,
+  "completion_tokens": 515,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-002",
+  "cond": "엔진(검증 전)",
+  "run": 1,
+  "sec": 4.62,
+  "prompt_tokens": 3105,
+  "completion_tokens": 466,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-002",
+  "cond": "엔진(최종)",
+  "run": 1,
+  "sec": 4.62,
+  "prompt_tokens": 3105,
+  "completion_tokens": 466,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-002",
+  "cond": "엔진(검증 전)",
+  "run": 2,
+  "sec": 4.68,
+  "prompt_tokens": 3105,
+  "completion_tokens": 490,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-002",
+  "cond": "엔진(최종)",
+  "run": 2,
+  "sec": 4.68,
+  "prompt_tokens": 3105,
+  "completion_tokens": 490,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-002",
+  "cond": "엔진(검증 전)",
+  "run": 3,
+  "sec": 4.71,
+  "prompt_tokens": 3105,
+  "completion_tokens": 482,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-002",
+  "cond": "엔진(최종)",
+  "run": 3,
+  "sec": 4.71,
+  "prompt_tokens": 3105,
+  "completion_tokens": 482,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-002",
+  "cond": "엔진(검증 전)",
+  "run": 4,
+  "sec": 4.53,
+  "prompt_tokens": 3105,
+  "completion_tokens": 479,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-002",
+  "cond": "엔진(최종)",
+  "run": 4,
+  "sec": 4.53,
+  "prompt_tokens": 3105,
+  "completion_tokens": 479,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-003",
+  "cond": "LLM 단독",
+  "run": 0,
+  "sec": 6.35,
+  "prompt_tokens": 6813,
+  "completion_tokens": 884,
+  "errors": {
+   "없는 ID": [
+    "finding SCAN-2026-003-IL-MASKING-01-LOCALHOST-5000",
+    "note SCAN-2026-003-IL-MASKING-01-LOCALHOST-5000"
+   ],
+   "부적합 사례": [
+    "PIPC-2023-008"
+   ],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-003",
+  "cond": "LLM 단독",
+  "run": 1,
+  "sec": 6.65,
+  "prompt_tokens": 6813,
+  "completion_tokens": 937,
+  "errors": {
+   "없는 ID": [
+    "finding SCAN-2026-003-IL-MASKING-01-LOCALHOST-5000",
+    "note SCAN-2026-003-IL-MASKING-01-LOCALHOST-5000"
+   ],
+   "부적합 사례": [
+    "PIPC-2023-008"
+   ],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-003",
+  "cond": "LLM 단독",
+  "run": 2,
+  "sec": 5.72,
+  "prompt_tokens": 6813,
+  "completion_tokens": 827,
+  "errors": {
+   "없는 ID": [
+    "finding SCAN-2026-003-IL-MASKING-01-LOCALHOST-5000",
+    "note SCAN-2026-003-IL-MASKING-01-LOCALHOST-5000"
+   ],
+   "부적합 사례": [
+    "PIPC-2023-008"
+   ],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-003",
+  "cond": "LLM 단독",
+  "run": 3,
+  "sec": 6.39,
+  "prompt_tokens": 6813,
+  "completion_tokens": 929,
+  "errors": {
+   "없는 ID": [
+    "finding SCAN-2026-003-IL-MASKING-01-LOCALHOST-5000",
+    "note SCAN-2026-003-IL-MASKING-01-LOCALHOST-5000"
+   ],
+   "부적합 사례": [
+    "PIPC-2023-008",
+    "PIPC-2023-006"
+   ],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-003",
+  "cond": "LLM 단독",
+  "run": 4,
+  "sec": 6.54,
+  "prompt_tokens": 6813,
+  "completion_tokens": 908,
+  "errors": {
+   "없는 ID": [
+    "finding SCAN-2026-003-IL-MASKING-01-LOCALHOST-5000",
+    "note SCAN-2026-003-IL-MASKING-01-LOCALHOST-5000"
+   ],
+   "부적합 사례": [
+    "PIPC-2023-008"
+   ],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-003",
+  "cond": "엔진(검증 전)",
+  "run": 0,
+  "sec": 7.4,
+  "prompt_tokens": 4069,
+  "completion_tokens": 751,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-003",
+  "cond": "엔진(최종)",
+  "run": 0,
+  "sec": 7.4,
+  "prompt_tokens": 4069,
+  "completion_tokens": 751,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-003",
+  "cond": "엔진(검증 전)",
+  "run": 1,
+  "sec": 6.24,
+  "prompt_tokens": 4069,
+  "completion_tokens": 732,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-003",
+  "cond": "엔진(최종)",
+  "run": 1,
+  "sec": 6.24,
+  "prompt_tokens": 4069,
+  "completion_tokens": 732,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-003",
+  "cond": "엔진(검증 전)",
+  "run": 2,
+  "sec": 6.51,
+  "prompt_tokens": 4069,
+  "completion_tokens": 731,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-003",
+  "cond": "엔진(최종)",
+  "run": 2,
+  "sec": 6.51,
+  "prompt_tokens": 4069,
+  "completion_tokens": 731,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-003",
+  "cond": "엔진(검증 전)",
+  "run": 3,
+  "sec": 6.7,
+  "prompt_tokens": 4069,
+  "completion_tokens": 786,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-003",
+  "cond": "엔진(최종)",
+  "run": 3,
+  "sec": 6.7,
+  "prompt_tokens": 4069,
+  "completion_tokens": 786,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-003",
+  "cond": "엔진(검증 전)",
+  "run": 4,
+  "sec": 7.09,
+  "prompt_tokens": 4069,
+  "completion_tokens": 789,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ },
+ {
+  "scan": "SCAN-2026-003",
+  "cond": "엔진(최종)",
+  "run": 4,
+  "sec": 7.09,
+  "prompt_tokens": 4069,
+  "completion_tokens": 789,
+  "errors": {
+   "없는 ID": [],
+   "부적합 사례": [],
+   "누락": [],
+   "출처 없는 금액": [],
+   "문장 속 금액": []
+  }
+ }
+]

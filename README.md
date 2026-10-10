@@ -55,7 +55,7 @@ LLM에게 보고서를 통째로 맡기면 과징금 금액을 잘못 옮기고,
 
 ![비교 실험](docs/images/compare_chart.png)
 
-자세한 설계는 [보고서 엔진 모듈 설명](docs/report_engine_module.md)에 정리했습니다.
+실험 스크립트와 원본 결과는 [experiment/](experiment/README.md)에 있고, 자세한 설계는 [보고서 엔진 모듈 설명](docs/report_engine_module.md)에 정리했습니다.
 
 ---
 

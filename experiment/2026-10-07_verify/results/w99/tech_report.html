@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>모의 교육 플랫폼 취약점 진단 결과 상세 보고서</title>
+<style>
+/* 시스템에 Pretendard가 깔려 있어도 섞이지 않게 이름을 따로 붙인다.
+   TTF 버전을 쓰는 이유: OTF(CFF) 임베드는 일부 PDF 뷰어에서 숫자·기호가 사라지는 문제가 있음 */
+@font-face { font-family: "ReportPretendard"; font-weight: 400; src: url("file://vuln_assessment/report_engine/fonts/Pretendard-Regular.ttf"); }
+@font-face { font-family: "ReportPretendard"; font-weight: 600; src: url("file://vuln_assessment/report_engine/fonts/Pretendard-SemiBold.ttf"); }
+@font-face { font-family: "ReportPretendard"; font-weight: 700; src: url("file://vuln_assessment/report_engine/fonts/Pretendard-Bold.ttf"); }
+
+/* 루키즈 로고에서 뽑은 색: 주황 #ED742E, 빨강 #E2312D (+ 중립 회색 #727171)
+   역할 분담: 주황 = 레이아웃(선, 띠, 강조 막대), 회색 = 보조 글씨, 빨강 = 꼭 봐야 하는 글씨만 */
+:root {
+  --orange: #ED742E;
+  --orange-ink: #B9601C;   /* 주황 글씨용. 브랜드 주황은 흰 배경 위 작은 글씨로 읽기 어려워서 한 톤 진하게 */
+  --orange-tint: #FBEFE4;
+  --red: #E2312D;
+  --gray: #727171;
+  --charcoal: #2E2F31;
+  --text: #3A3B3D;
+  --line: #DCDCDC;
+  --tint: #F3F3F3;
+  --risk: #E2312D;
+}
+
+html {
+  font-family: "ReportPretendard", "Apple SD Gothic Neo", "Noto Sans CJK KR", sans-serif;
+  color: var(--text);
+  word-break: keep-all;          /* 브라우저 미리보기용. PDF 제목은 kw 필터가 처리 */
+  overflow-wrap: break-word;
+  font-feature-settings: "calt" 0, "clig" 0;   /* 숫자·하이픈 대체 글리프를 쓰지 않음 (뷰어 호환성) */
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+.nw { white-space: nowrap; }
+
+/* 위험도: 상 = 빨강, 중 = 주황, 하 = 회색 */
+.sev {
+  display: inline-block;
+  min-width: 1.7em;
+  text-align: center;
+  font-weight: 700;
+  border: 1.2px solid currentColor;
+  border-radius: 3px;
+  line-height: 1.45;
+}
+.sev-h { color: var(--red); }
+.sev-m { color: var(--orange-ink); }
+.sev-l { color: var(--gray); }
+
+.review {
+  display: inline-block;
+  font-size: .78em;
+  font-weight: 600;
+  padding: 0 .4em;
+  border-radius: 3px;
+  vertical-align: .08em;
+}
+.review.no  { color: var(--orange-ink); background: var(--orange-tint); }
+.review.yes { color: var(--gray); background: var(--tint); }
+
+/* 사례 등급 칩: 동일 결함 / 같은 유형 / 관련 통제. 강조색 없이 회색 (판단 근거 표시용) */
+.lvl {
+  display: inline-block;
+  font-size: .78em;
+  font-weight: 600;
+  padding: 0 .4em;
+  margin-left: .3em;
+  border-radius: 3px;
+  vertical-align: .08em;
+  color: var(--gray);
+  background: var(--tint);
+  white-space: nowrap;
+}
+
+pre, code {
+  font-family: Menlo, "SFMono-Regular", Consolas, "DejaVu Sans Mono", "ReportPretendard", monospace;
+}
+
+/* 머리글 로고 (running element: 표지 빼고 매 페이지 반복) */
+.logo-run { position: running(logo); }
+
+@page {
+  size: A4;
+  margin: 24mm 20mm 22mm 22mm;
+  @top-left   { content: "모의 교육 플랫폼 취약점 진단 결과  |  SCAN-2026-002-T"; font: 400 8pt "ReportPretendard"; color: #727171; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right  { content: element(logo); vertical-align: bottom; padding-bottom: 3mm; }
+  @bottom-center { content: counter(page); font: 400 8.5pt "ReportPretendard"; color: #727171; }
+}
+@page :first {
+  @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; }
+}
+
+/* 실무진용은 읽기가 우선: 브랜드 요소는 로고뿐, 나머지는 회색 계열 */
+body { font-size: 9.6pt; line-height: 1.68; }
+.logo-run img { height: 8mm; }
+
+/* 표지 */
+.cover { break-after: page; }
+.cover-logo { height: 17mm; }
+.cover .disclaimer { margin-top: 5mm; font-size: 8.5pt; color: var(--gray); }
+.cover .doc-type { font-size: 12pt; font-weight: 600; color: var(--gray); margin-top: 48mm; }
+.cover h1 { font-size: 27pt; font-weight: 700; color: var(--charcoal); line-height: 1.3; margin-top: 4mm; }
+.cover .org { font-size: 13pt; color: var(--gray); margin-top: 4mm; }
+.cover .rule { height: 1.5px; width: 28mm; background: var(--charcoal); margin-top: 12mm; }
+.cover table.grid { margin-top: 85mm; width: 100%; }
+
+/* 제목 */
+h2 { font-size: 15pt; font-weight: 700; color: var(--charcoal); margin: 0 0 4mm; padding-bottom: 2mm; border-bottom: 1.5px solid var(--charcoal); break-after: avoid; }
+h2.new { break-before: page; }
+h3 { font-size: 11.5pt; font-weight: 700; color: var(--charcoal); margin: 7mm 0 2.5mm; break-after: avoid; }
+p + p { margin-top: 2mm; }
+.muted { color: var(--gray); }
+.risk-word { font-weight: 700; color: var(--risk); }
+
+/* 일반 표 */
+table.grid { width: 100%; border-collapse: collapse; margin-top: 1mm; }
+table.grid th, table.grid td { border: 0.6pt solid var(--line); padding: 1.6mm 2.4mm; vertical-align: top; text-align: left; }
+table.grid thead th { background: var(--tint); font-weight: 600; color: var(--charcoal); }
+table.grid tbody th { background: var(--tint); font-weight: 600; color: var(--charcoal); width: 30mm; white-space: nowrap; }
+table.grid td.c, table.grid th.c { text-align: center; }
+table.grid tr { break-inside: avoid; }
+.status-vuln { font-weight: 700; color: var(--red); }
+.status-ok { color: var(--gray); }
+
+/* 취약점 상세: 국내 진단 보고서식 항목표. 머리줄 왼쪽 막대만 위험도 색 */
+.finding { margin-top: 8mm; }
+.finding:first-of-type { margin-top: 2mm; }
+.f-head {
+  display: grid; grid-template-columns: auto 1fr auto; column-gap: 3mm; align-items: baseline;
+  padding: 2.4mm 3mm; background: #E9E9E9; color: var(--charcoal);
+  border: 0.6pt solid var(--line); border-bottom: none;
+  border-left: 4px solid var(--gray);
+  break-after: avoid;
+}
+.finding.f-h .f-head { border-left-color: var(--red); }
+.finding.f-m .f-head { border-left-color: var(--orange); }
+.f-head .num { font-weight: 700; color: var(--gray); }
+.f-head .ttl { font-size: 11pt; font-weight: 700; }
+.f-head .sev { background: #FFFFFF; font-size: 9pt; padding: 0 1.2mm; }
+.finding table.grid { margin-top: 0; }
+.finding table.grid tbody th { width: 26mm; }
+pre {
+  margin-top: 1.6mm; padding: 2mm 2.6mm; background: #F6F6F6; border-left: 2px solid var(--line);
+  font-size: 8.2pt; line-height: 1.5; white-space: pre-wrap; word-break: break-all;
+}
+.law + .law { margin-top: 2.6mm; padding-top: 2.6mm; border-top: 0.6pt dashed var(--line); }
+.law .head { font-weight: 600; }
+.law blockquote { margin-top: 1mm; color: var(--gray); font-size: 8.8pt; }
+.law .why { margin-top: 1mm; font-size: 8.8pt; }
+.missing { color: var(--gray); font-style: normal; }
+ul.plain { padding-left: 4.5mm; }
+ul.plain li + li { margin-top: 1mm; }
+table.grid td.r { text-align: right; white-space: nowrap; }
+.formula { margin-top: 2mm; font-size: 8.8pt; color: var(--gray); }
+</style>
+</head>
+<body>
+<div class="logo-run"><img src="file://vuln_assessment/report_engine/assets/rookies_logo.png" alt="SK쉴더스 루키즈"></div>
+
+<!-- 표지 -->
+<section class="cover">
+  <img class="cover-logo" src="file://vuln_assessment/report_engine/assets/rookies_logo.png" alt="SK쉴더스 루키즈">
+  <p class="doc-type">상세 진단 보고서 (실무진용)</p>
+  <h1><span class="nw">모의</span> <span class="nw">교육</span> <span class="nw">플랫폼</span> <span class="nw">취약점</span> <span class="nw">진단</span> <span class="nw">결과</span></h1>
+  <p class="org">러닝브릿지(가상) 온라인 교육 플랫폼</p>
+  <div class="rule"></div>
+  <table class="grid">
+    <tbody>
+      <tr><th>문서 번호</th><td>SCAN-2026-002-T</td><th>진단 일자</th><td>2026-10-02</td></tr>
+      <tr><th>진단 대상</th><td>모의 교육 플랫폼</td><th>작성일</th><td>2026-10-07</td></tr>
+      <tr><th>작성</th><td>SK쉴더스 루키즈 34기 1석삼조 팀</td><th>대상 독자</th><td>정보보호·개발·운영 담당자</td></tr>
+    </tbody>
+  </table>
+  <p class="disclaimer">본 보고서는 SK쉴더스 루키즈 교육과정의 프로젝트 산출물이며, SK쉴더스의 공식 진단 보고서가 아닙니다.</p>
+</section>
+
+<!-- 1. 진단 개요 -->
+<h2>1. 진단 개요</h2>
+
+<h3>1.1 대상 및 범위</h3>
+<table class="grid">
+  <thead><tr><th>자산</th><th>자산 ID</th><th class="c">개인정보 처리</th><th class="c">점검 항목</th></tr></thead>
+  <tbody>
+  
+    <tr><td>교육 플랫폼 웹서버</td><td>WEB01</td><td class="c">처리</td><td class="c">2개</td></tr>
+  
+  </tbody>
+</table>
+
+<h3>1.2 적용 기준</h3>
+<table class="grid">
+  <thead><tr><th>구분</th><th>문서</th><th>버전</th><th>시행일</th></tr></thead>
+  <tbody>
+  
+    <tr><td>법률</td><td>개인정보 보호법</td><td>법률 제21445호</td><td>2026-09-11</td></tr>
+  
+    <tr><td>고시</td><td>개인정보의 안전성 확보조치 기준</td><td>개인정보보호위원회고시 제2026-9호</td><td>2026-07-01</td></tr>
+  
+    <tr><td>인증기준</td><td>ISMS-P 인증기준 안내서</td><td>2023.11</td><td>-</td></tr>
+  
+  </tbody>
+</table>
+
+<h3>1.3 법령·인증기준 매핑 방식</h3>
+<p>
+  취약점과 법령·ISMS-P 인증기준의 매핑은 llm+rule으로 수행했습니다
+  (모델 gpt-5.5, 프롬프트 v3/n2).
+  담당자 검토를 마친 매핑은 <span class="review yes">검토 완료</span>, 아직 확인하지 않은 매핑은 <span class="review no">검토 전</span>으로 표시합니다.
+  현재 검토 전 매핑은 4건입니다.
+</p>
+
+<!-- 2. 결과 요약 -->
+<h2 class="new">2. 진단 결과 요약</h2>
+<p>점검 2개 항목 중 취약 1개, 양호 1개입니다.
+   전체 위험 수준은 <span class="risk-word">심각</span>(개인정보를 처리하는 자산에 &#39;상&#39; 위험 취약점이 있음)으로 판정했습니다.</p>
+
+<h3>2.1 위험도별 현황</h3>
+<table class="grid" style="width: 60%">
+  <thead><tr><th>위험도</th><th class="c">취약 항목</th></tr></thead>
+  <tbody>
+  
+    <tr><td><span class="sev sev-h">상</span></td><td class="c">1개</td></tr>
+  
+    <tr><td><span class="sev sev-m">중</span></td><td class="c">0개</td></tr>
+  
+    <tr><td><span class="sev sev-l">하</span></td><td class="c">0개</td></tr>
+  
+  </tbody>
+</table>
+
+<h3>2.2 항목별 결과</h3>
+<table class="grid">
+  <thead><tr><th>항목</th><th>점검 항목</th><th>대상 자산</th><th class="c">위험도</th><th class="c">결과</th></tr></thead>
+  <tbody>
+  
+    <tr>
+      <td>W-99</td><td>신규 스캐너 점검 항목</td><td>교육 플랫폼 웹서버</td>
+      <td class="c"><span class="sev sev-h">상</span></td>
+      <td class="c status-vuln">취약</td>
+    </tr>
+  
+    <tr>
+      <td>W-02</td><td>약한 비밀번호 정책</td><td>교육 플랫폼 웹서버</td>
+      <td class="c"><span class="sev sev-h">상</span></td>
+      <td class="c status-ok">양호</td>
+    </tr>
+  
+  </tbody>
+</table>
+
+<!-- 3. 취약점 상세 -->
+<h2 class="new">3. 취약점 상세</h2>
+
+
+
+<section class="finding f-h">
+  <div class="f-head">
+    <span class="num">3.1</span>
+    <span class="ttl">신규 스캐너 점검 항목 (W-99)</span>
+    <span class="sev sev-h">상</span>
+  </div>
+  <table class="grid">
+    <tbody>
+      <tr><th>식별 번호</th><td>SCAN-2026-002-W-03-WEB01</td></tr>
+      <tr><th>대상 자산</th><td>교육 플랫폼 웹서버 (WEB01), 개인정보 처리</td></tr>
+      <tr><th>설명</th><td>교육 플랫폼 웹서버에서 수강생 계정으로 로그인한 후, 성적 조회 URL의 student_id 값을 다른 번호로 변경하면 다른 수강생의 개인정보가 노출됩니다. 이는 서버에서 요청자의 본인 여부를 확인하지 않기 때문입니다.</td></tr>
+      <tr><th>영향</th><td>공격자가 다른 수강생의 개인정보를 무단으로 조회할 수 있어, 개인정보 유출로 인한 법적 문제와 신뢰 손실이 발생할 수 있습니다.</td></tr>
+      <tr><th>현황</th><td>
+        수강생 계정으로 로그인한 뒤 성적 조회 URL의 student_id 값을 다른 번호로 바꾸면 다른 수강생의 이름, 연락처, 성적이 그대로 조회됨. 서버에서 요청자 본인 여부를 확인하지 않음
+        
+      </td></tr>
+      <tr><th>판단 기준</th><td><em class="missing">항목 카탈로그에 기준이 없습니다.</em></td></tr>
+      <tr><th>조치 방법</th><td><em class="missing">항목 카탈로그에 조치 방법이 없습니다.</em></td></tr>
+      <tr><th>관련 법령</th><td>
+        
+        <div class="law">
+          <p class="head">개인정보 보호법 제29조(안전조치의무)
+            <span class="review no">검토 전</span>
+            </p>
+          <blockquote>제29조(안전조치의무) 개인정보처리자는 개인정보가 유출등이 되지 아니하도록 내부 관리계획 수립, 접속기록 보관 등 대통령령으로 정하는 바에 따라 안전성 확보에 필요한 기술적ㆍ관리적 및 물리적 조치를 하여야 한다.</blockquote>
+          <p class="why">매핑 근거: 수강생 계정에서 다른 수강생의 이름, 연락처, 성적이 조회되어 개인정보가 권한 없는 자에게 유출될 수 있는 상태입니다. 이는 접근권한 및 접근통제 등 안전성 확보에 필요한 기술적 조치가 미흡한 경우에 해당합니다. (근거: ISMS-P 2.6.3(응용프로그램 접근) 관련 법규)</p>
+        </div>
+        
+        <div class="law">
+          <p class="head">개인정보의 안전성 확보조치 기준 제5조 제1항(접근 권한의 관리)
+            <span class="review no">검토 전</span>
+            </p>
+          <blockquote>① 개인정보처리자는 개인정보처리시스템에 대한 접근 권한을 업무 수행에 필요한 최소한의 범위로 차등 부여하여야 한다.</blockquote>
+          <p class="why">매핑 근거: 수강생 계정이 본인 정보 범위를 넘어 다른 수강생의 개인정보와 성적에 접근할 수 있어 개인정보처리시스템 접근 권한이 필요한 최소 범위로 제한·차등 부여되지 않았습니다. (근거: ISMS-P 2.6.3(응용프로그램 접근) 관련 법규)</p>
+        </div>
+        
+        <div class="law">
+          <p class="head">개인정보의 안전성 확보조치 기준 제6조 제3항(접근통제)
+            <span class="review no">검토 전</span>
+            </p>
+          <blockquote>③ 개인정보처리자는 처리하는 개인정보가 인터넷 홈페이지, P2P, 공유설정 등을 통하여 권한이 없는 자에게 공개되거나 유출되지 않도록 개인정보처리시스템, 개인정보취급자의 컴퓨터 및 모바일 기기 등에 조치를 하여야 한다.</blockquote>
+          <p class="why">매핑 근거: 성적 조회 URL의 student_id만 변경하면 인터넷 홈페이지를 통해 권한 없는 수강생에게 다른 수강생의 개인정보가 공개됩니다. 이는 권한 없는 자에게 개인정보가 공개 또는 유출되지 않도록 조치해야 하는 의무에 어긋납니다. (근거: ISMS-P 2.6.3(응용프로그램 접근) 관련 법규)</p>
+        </div>
+        
+      </td></tr>
+      <tr><th>ISMS-P</th><td>
+        
+        <div class="law">
+          <p class="head">2.6.3 응용프로그램 접근
+            <span class="review no">검토 전</span></p>
+          <p class="why">매핑 근거: 수강생이 성적 조회 URL의 student_id 값을 변경하여 다른 수강생의 이름, 연락처, 성적을 조회할 수 있어 응용프로그램에서 사용자별 접근권한을 적절히 제한하지 못하고 있습니다. 서버에서 요청자 본인 여부를 확인하지 않아 개인정보 및 중요정보 노출을 최소화하기 위한 접근통제가 미흡합니다.</p>
+        </div>
+        
+      </td></tr>
+      <tr><th>매핑 검토 메모</th><td class="muted">LLM 항 판단으로 제외한 조문: SAFE-12 제12조(출력ㆍ복사시 안전조치): 진단 근거는 URL 파라미터 조작에 따른 권한 검증 미흡과 타인 정보 조회에 관한 내용입니다. 출력 용도 특정, 출력 항목 최소화 또는 출력·복사물 관리 미흡 사실은 제시되지 않았습니다.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+
+<!-- 4. 부록 -->
+<h2 class="new">4. 부록</h2>
+<h3>4.1 기준 문서 원본</h3>
+<table class="grid">
+  <thead><tr><th>ID</th><th>원본 파일</th></tr></thead>
+  <tbody>
+  <tr><td>PIPA-21445</td><td>개인정보 보호법(법률)(제21445호)(20260911).txt</td></tr><tr><td>SAFE-2026-9</td><td>개인정보의 안전성 확보조치 기준(고시)(제2026-9호)(20260701).txt</td></tr><tr><td>ISMSP-2023.11</td><td>ISMS-P 인증기준 안내서(2023.11).txt</td></tr>
+  </tbody>
+</table>
+
+<h3>4.2 보고서 생성 방식</h3>
+<p>결과 판정(위험도, 취약·양호, 전체 위험 수준)은 진단 데이터와 정해진 규칙으로 산출했습니다.
+   설명과 영향 문장은 AI가 작성했으며, 판단 기준과 조치 방법은 항목 카탈로그에서, 법령 조문은 기준 문서 원문에서 그대로 가져왔습니다.</p>
+<p>유사 사례는 개인정보보호위원회 처분 보도자료 원문으로 확인한 사례 카드에서 검색했고, 과징금 노출액과 조치 우선순위는 아래 기준으로 코드가 계산했습니다.
+   금액은 AI를 거치지 않았습니다.</p>
+
+
+<h3>4.3 과징금 노출 산정</h3>
+<table class="grid">
+  <colgroup><col style="width: 30mm"><col style="width: 24mm"><col></colgroup>
+  <thead><tr><th>항목</th><th class="c">값</th><th>근거·설명</th></tr></thead>
+  <tbody>
+    <tr><td>법정 상한</td><td class="r">1억 5,000만 원</td><td>전체 매출액에서 위반과 무관한 매출을 뺀 금액의 3%. 개인정보 보호법 제64조의2(과징금의 부과), 2026-09-11 시행 개정법</td></tr>
+    <tr><td>10% 특례 시나리오</td><td class="r">5억 원</td>
+        <td>고의·중과실로 3년 내 같은 유형 반복 위반: 해당 없음 (고객사 프로필의 3년 내 위반 이력 기준. 고의·중과실 여부는 도구가 판단하지 않음)<br>고의·중과실로 피해 1천만 명 이상: 해당 없음 (정보주체 120,000명 → 1천만 명 기준 미달)<br>시정명령 불이행으로 유출: 해당 없음 (고객사 프로필의 시정명령 미이행 여부 기준)</td></tr>
+    <tr><td>투자 감경</td><td class="r">최대 40%</td>
+        <td>보호 투자·보호체계 운영·추가 안전조치를 고려해 기준금액의 최대 40% 감경. 위반 전 3개 사업연도 노력을 보며 고의·중과실 위반은 제외. 상한 기준 예시 9,000만 원</td></tr>
+    <tr><td>ISMS-P 인증 감경</td><td class="r">최대 30%</td>
+        <td>현재 미인증. ISMS-P 인증에 따른 감경 상한은 최대 30%(개정 전 50%). 중요 개인정보처리자 대상 인증 의무화는 2027-07-01 시행 예정</td></tr>
+    
+    <tr><td>유사 처분 사례 과징금</td><td class="r">4건</td>
+        <td>최소 5,750만 원, 중앙값 358,655,000원, 최대 213억 8,500만 원. 참고 사례를 뺀 등급(동일 결함·같은 유형·관련 통제)의 처분 사례 중 과징금이 있는 것만 집계. 사례 기업과 고객사의 매출 규모가 달라 예상 부과액이 아니라 &#39;유사 사례에서 실제로 나온 금액&#39;임<br>유사 사례 중앙값이 이 고객사의 법정 상한보다 큼. 사례 기업이 더 커서 생긴 차이이므로 사례 금액을 고객사 예상 과징금처럼 쓰면 안 됨 (상한을 넘는 과징금은 불가능)</td></tr>
+  </tbody>
+</table>
+
+<h3>4.4 조치 우선순위</h3>
+<table class="grid">
+  <thead><tr><th class="c">순위</th><th>점검 항목</th><th class="c">위험도</th><th>사례 근거</th><th class="c">점수</th><th class="c">여기까지 조치 시</th></tr></thead>
+  <tbody>
+  
+    <tr><td class="c">1</td><td>신규 스캐너 점검 항목</td><td class="c"><span class="sev sev-h">상</span></td>
+        <td>관련 통제</td><td class="c">3.75</td>
+        <td class="c">리스크 100.0% 감소</td></tr>
+  
+  </tbody>
+</table>
+<p class="formula">점수 = 심각도(상3·중2·하1) × 개인정보 자산(예 1.0·아니오 0.3) × (1 + 0.5 × 사례 근거(동일 결함 1.0·같은 유형 0.7·관련 통제 0.5·참고 0.3·없음 0.2)). 점수는 조치 순서를 정하기 위한 상대값이며 금액이 아닙니다.</p>
+
+<h3>4.5 산정 가정과 제외 항목</h3>
+<ul class="plain">
+  <li>고객사 프로필(매출·정보주체 수 등)은 모의 교육 플랫폼 가정값</li><li>법정 상한은 최대치이며 예상 부과액이 아님</li><li>같은 조항에 걸린 취약점이 여러 개여도 법정 상한은 한 번만 적용</li><li>유사 사례 금액은 대부분 개정법 시행(2026-09-11) 이전 구법 기준 처분</li><li>투자 감경 예시값은 법정 상한에 최대 감경률을 적용한 것으로, 실제 감경은 기준금액에 적용됨</li><li>우선순위 점수는 조치 순서를 정하기 위한 상대 점수이며 금액이 아님</li>
+</ul>
+
+<table class="grid" style="margin-top: 3mm">
+  <thead><tr><th>제외 항목</th><th>사유</th></tr></thead>
+  <tbody>
+  <tr><td>약한 비밀번호 정책</td><td>상태가 &#39;양호&#39;라 노출액 계산에서 제외</td></tr>
+  </tbody>
+</table>
+
+
+</body>
+</html>

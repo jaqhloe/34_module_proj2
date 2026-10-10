@@ -1,0 +1,505 @@
+{
+ "meta": {
+  "date": "2026-10-07 09:31",
+  "model": "gpt-4o",
+  "temperature": 0.2,
+  "runs": 5,
+  "scans": [
+   "SCAN-20261007-001"
+  ],
+  "elapsed_sec": 66.8
+ },
+ "case_matching": [
+  {
+   "scan": "SCAN-20261007-001",
+   "title": "주석 내 정보 누출",
+   "best": "동일 결함 사례",
+   "후보 등급 분포": {
+    "동일 결함 사례": 4,
+    "같은 취약점 유형": 1
+   }
+  },
+  {
+   "scan": "SCAN-20261007-001",
+   "title": "유추 가능한 비밀번호",
+   "best": "관련 통제 사례",
+   "후보 등급 분포": {
+    "관련 통제 사례": 2,
+    "참고 사례": 3
+   }
+  },
+  {
+   "scan": "SCAN-20261007-001",
+   "title": "낮은 복잡도의 비밀번호 정책",
+   "best": "관련 통제 사례",
+   "후보 등급 분포": {
+    "관련 통제 사례": 2,
+    "참고 사례": 3
+   }
+  },
+  {
+   "scan": "SCAN-20261007-001",
+   "title": "불충분한 인증 절차",
+   "best": "동일 결함 사례",
+   "후보 등급 분포": {
+    "동일 결함 사례": 5
+   }
+  },
+  {
+   "scan": "SCAN-20261007-001",
+   "title": "타인 문의글 열람",
+   "best": "관련 통제 사례",
+   "후보 등급 분포": {
+    "관련 통제 사례": 5
+   }
+  },
+  {
+   "scan": "SCAN-20261007-001",
+   "title": "타인 문의글 댓글 작성",
+   "best": "관련 통제 사례",
+   "후보 등급 분포": {
+    "관련 통제 사례": 5
+   }
+  },
+  {
+   "scan": "SCAN-20261007-001",
+   "title": "취약한 비밀번호 복구 절차",
+   "best": "동일 결함 사례",
+   "후보 등급 분포": {
+    "동일 결함 사례": 1,
+    "관련 통제 사례": 4
+   }
+  }
+ ],
+ "e2e": [
+  {
+   "scan": "vuln_assessment/scanner/output/legal_result.json",
+   "exit": 0,
+   "sec_total": 14.89,
+   "run_log": {
+    "scan_id": "SCAN-20261007-001",
+    "generated": "2026-10-07",
+    "llm_source": "live",
+    "warnings": []
+   },
+   "stdout": "그 IA 항목 사용 (이름 일치)\n[카탈로그] W-03 '비인증 접근' → 카탈로그에 없음 (실무진용 판단 기준·조치 방법 칸이 비어 나옴)\n[카탈로그] W-04 '수직 권한 상승' → 카탈로그에 없음 (실무진용 판단 기준·조치 방법 칸이 비어 나옴)\n[카탈로그] W-05 '타인 문의글 열람' → 카탈로그에 없음 (실무진용 판단 기준·조치 방법 칸이 비어 나옴)\n[카탈로그] W-06 '타인 문의글 댓글 작성' → 카탈로그에 없음 (실무진용 판단 기준·조치 방법 칸이 비어 나옴)\n[카탈로그] PWRECOVERY-01 '취약한 비밀번호 복구 절차' → 카탈로그 PR 항목 사용 (이름 일치)\n[facts] 취약 7건 / 전체 19개, 위험 수준 심각\n[exposure] 법정 상한 150,000,000원, 후보 사례 18건 → experiment/2026-10-07_live_scan/results/e2e/legal_result\n[llm] 호출 1회...\n[render] experiment/2026-10-07_live_scan/results/e2e/legal_result/exec_report.pdf\n[render] experiment/2026-10-07_live_scan/results/e2e/legal_result/tech_report.pdf\n",
+   "stderr": ""
+  },
+  {
+   "scan": "vuln_assessment/scanner/output/legal_result.json",
+   "exit": 0,
+   "sec_total": 12.25,
+   "run_log": {
+    "scan_id": "SCAN-20261007-001",
+    "generated": "2026-10-07",
+    "llm_source": "live",
+    "warnings": []
+   },
+   "stdout": "그 IA 항목 사용 (이름 일치)\n[카탈로그] W-03 '비인증 접근' → 카탈로그에 없음 (실무진용 판단 기준·조치 방법 칸이 비어 나옴)\n[카탈로그] W-04 '수직 권한 상승' → 카탈로그에 없음 (실무진용 판단 기준·조치 방법 칸이 비어 나옴)\n[카탈로그] W-05 '타인 문의글 열람' → 카탈로그에 없음 (실무진용 판단 기준·조치 방법 칸이 비어 나옴)\n[카탈로그] W-06 '타인 문의글 댓글 작성' → 카탈로그에 없음 (실무진용 판단 기준·조치 방법 칸이 비어 나옴)\n[카탈로그] PWRECOVERY-01 '취약한 비밀번호 복구 절차' → 카탈로그 PR 항목 사용 (이름 일치)\n[facts] 취약 7건 / 전체 19개, 위험 수준 심각\n[exposure] 법정 상한 150,000,000원, 후보 사례 18건 → experiment/2026-10-07_live_scan/results/e2e/legal_result\n[llm] 호출 1회...\n[render] experiment/2026-10-07_live_scan/results/e2e/legal_result/exec_report.pdf\n[render] experiment/2026-10-07_live_scan/results/e2e/legal_result/tech_report.pdf\n",
+   "stderr": ""
+  },
+  {
+   "scan": "vuln_assessment/scanner/output/legal_result.json",
+   "exit": 0,
+   "sec_total": 13.24,
+   "run_log": {
+    "scan_id": "SCAN-20261007-001",
+    "generated": "2026-10-07",
+    "llm_source": "live",
+    "warnings": []
+   },
+   "stdout": "그 IA 항목 사용 (이름 일치)\n[카탈로그] W-03 '비인증 접근' → 카탈로그에 없음 (실무진용 판단 기준·조치 방법 칸이 비어 나옴)\n[카탈로그] W-04 '수직 권한 상승' → 카탈로그에 없음 (실무진용 판단 기준·조치 방법 칸이 비어 나옴)\n[카탈로그] W-05 '타인 문의글 열람' → 카탈로그에 없음 (실무진용 판단 기준·조치 방법 칸이 비어 나옴)\n[카탈로그] W-06 '타인 문의글 댓글 작성' → 카탈로그에 없음 (실무진용 판단 기준·조치 방법 칸이 비어 나옴)\n[카탈로그] PWRECOVERY-01 '취약한 비밀번호 복구 절차' → 카탈로그 PR 항목 사용 (이름 일치)\n[facts] 취약 7건 / 전체 19개, 위험 수준 심각\n[exposure] 법정 상한 150,000,000원, 후보 사례 18건 → experiment/2026-10-07_live_scan/results/e2e/legal_result\n[llm] 호출 1회...\n[render] experiment/2026-10-07_live_scan/results/e2e/legal_result/exec_report.pdf\n[render] experiment/2026-10-07_live_scan/results/e2e/legal_result/tech_report.pdf\n",
+   "stderr": ""
+  }
+ ],
+ "compare_rows": [
+  {
+   "scan": "SCAN-20261007-001",
+   "cond": "LLM 단독",
+   "run": 0,
+   "sec": 14.13,
+   "prompt_tokens": 20427,
+   "completion_tokens": 2131,
+   "score": {
+    "존재하지 않는 ID": [],
+    "양호·수동확인 항목을 취약으로 보고": [
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-02-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-03-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-04-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-05-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-06-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-07-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-08-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-09-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-MASKING-01-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-MASKING-02-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-W-03-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-W-04-LOCALHOST-5000(양호)"
+    ],
+    "관련성 낮은 사례 인용": [
+     "PIPC-2023-003",
+     "PIPC-2026-001"
+    ],
+    "취약 항목 누락": [],
+    "문장 속 금액": [],
+    "원본과 다른 금액": []
+   }
+  },
+  {
+   "scan": "SCAN-20261007-001",
+   "cond": "LLM 단독",
+   "run": 1,
+   "sec": 16.25,
+   "prompt_tokens": 20427,
+   "completion_tokens": 2278,
+   "score": {
+    "존재하지 않는 ID": [],
+    "양호·수동확인 항목을 취약으로 보고": [
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-02-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-03-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-04-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-05-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-06-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-07-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-08-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-09-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-MASKING-01-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-MASKING-02-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-W-03-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-W-04-LOCALHOST-5000(양호)"
+    ],
+    "관련성 낮은 사례 인용": [
+     "PIPC-2023-003",
+     "PIPC-2026-001",
+     "PIPC-2025-001",
+     "PIPC-2026-002"
+    ],
+    "취약 항목 누락": [],
+    "문장 속 금액": [
+     {
+      "where": "summary",
+      "amount": "4,235억 원",
+      "판정": "원본과 일치",
+      "원본": "PIPC-2026-011 쿠팡 주식회사 (유출 관련) fine_krw",
+      "문장": "러닝브릿지의 온라인 교육 플랫폼에서 발견된 취약점들은 개인정보 보호법 위반 가능성을 높이며, 특히 불충분한 인증 절차와 약한 비밀번호 정책은 심각한 보안 위협을 초래합니다. 유사 사례에서는 최대 4,235억 원의 과징금이 부과된 바 있습니다."
+     }
+    ],
+    "원본과 다른 금액": []
+   }
+  },
+  {
+   "scan": "SCAN-20261007-001",
+   "cond": "LLM 단독",
+   "run": 2,
+   "sec": 14.95,
+   "prompt_tokens": 20427,
+   "completion_tokens": 2138,
+   "score": {
+    "존재하지 않는 ID": [],
+    "양호·수동확인 항목을 취약으로 보고": [
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-02-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-03-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-04-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-05-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-06-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-07-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-08-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-09-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-MASKING-01-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-MASKING-02-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-W-03-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-W-04-LOCALHOST-5000(양호)"
+    ],
+    "관련성 낮은 사례 인용": [
+     "PIPC-2023-003",
+     "PIPC-2026-001"
+    ],
+    "취약 항목 누락": [],
+    "문장 속 금액": [],
+    "원본과 다른 금액": []
+   }
+  },
+  {
+   "scan": "SCAN-20261007-001",
+   "cond": "LLM 단독",
+   "run": 3,
+   "sec": 15.39,
+   "prompt_tokens": 20427,
+   "completion_tokens": 2122,
+   "score": {
+    "존재하지 않는 ID": [],
+    "양호·수동확인 항목을 취약으로 보고": [
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-02-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-03-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-04-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-05-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-06-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-07-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-08-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-09-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-MASKING-01-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-MASKING-02-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-W-03-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-W-04-LOCALHOST-5000(양호)"
+    ],
+    "관련성 낮은 사례 인용": [
+     "PIPC-2023-003",
+     "PIPC-2023-003"
+    ],
+    "취약 항목 누락": [],
+    "문장 속 금액": [],
+    "원본과 다른 금액": []
+   }
+  },
+  {
+   "scan": "SCAN-20261007-001",
+   "cond": "LLM 단독",
+   "run": 4,
+   "sec": 17.66,
+   "prompt_tokens": 20427,
+   "completion_tokens": 2442,
+   "score": {
+    "존재하지 않는 ID": [],
+    "양호·수동확인 항목을 취약으로 보고": [
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-02-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-03-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-04-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-05-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-06-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-07-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-08-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-COMMENT-09-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-MASKING-01-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-IL-MASKING-02-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-W-03-LOCALHOST-5000(양호)",
+     "finding_notes:SCAN-20261007-001-W-04-LOCALHOST-5000(양호)"
+    ],
+    "관련성 낮은 사례 인용": [
+     "PIPC-2026-006",
+     "PIPC-2026-001",
+     "PIPC-2026-005"
+    ],
+    "취약 항목 누락": [],
+    "문장 속 금액": [
+     {
+      "where": "summary",
+      "amount": "423억 원",
+      "판정": "자릿수 오류(×10)",
+      "원본": "PIPC-2026-011 쿠팡 주식회사 (유출 관련) fine_krw",
+      "문장": "러닝브릿지의 온라인 교육 플랫폼에서 발견된 주요 취약점은 유추 가능한 비밀번호, 불충분한 인증 절차, 타인 문의글 열람 및 댓글 작성입니다. 이러한 취약점은 개인정보 보호법 제29조의 안전조치 의무를 위반할 수 있으며, 유사 사례에서 과징금이 최대 423억 원에 달한 바 있습니다."
+     }
+    ],
+    "원본과 다른 금액": [
+     {
+      "where": "summary",
+      "amount": "423억 원",
+      "판정": "자릿수 오류(×10)",
+      "원본": "PIPC-2026-011 쿠팡 주식회사 (유출 관련) fine_krw"
+     }
+    ]
+   }
+  },
+  {
+   "scan": "SCAN-20261007-001",
+   "cond": "엔진(검증 전)",
+   "run": 0,
+   "sec": 9.47,
+   "prompt_tokens": 10314,
+   "completion_tokens": 1585,
+   "score": {
+    "존재하지 않는 ID": [],
+    "양호·수동확인 항목을 취약으로 보고": [],
+    "관련성 낮은 사례 인용": [],
+    "취약 항목 누락": [],
+    "문장 속 금액": [],
+    "원본과 다른 금액": []
+   }
+  },
+  {
+   "scan": "SCAN-20261007-001",
+   "cond": "엔진(최종)",
+   "run": 0,
+   "sec": 9.47,
+   "prompt_tokens": 10314,
+   "completion_tokens": 1585,
+   "score": {
+    "존재하지 않는 ID": [],
+    "양호·수동확인 항목을 취약으로 보고": [],
+    "관련성 낮은 사례 인용": [],
+    "취약 항목 누락": [],
+    "문장 속 금액": [],
+    "원본과 다른 금액": []
+   }
+  },
+  {
+   "scan": "SCAN-20261007-001",
+   "cond": "엔진(검증 전)",
+   "run": 1,
+   "sec": 9.78,
+   "prompt_tokens": 10314,
+   "completion_tokens": 1590,
+   "score": {
+    "존재하지 않는 ID": [],
+    "양호·수동확인 항목을 취약으로 보고": [],
+    "관련성 낮은 사례 인용": [],
+    "취약 항목 누락": [],
+    "문장 속 금액": [],
+    "원본과 다른 금액": []
+   }
+  },
+  {
+   "scan": "SCAN-20261007-001",
+   "cond": "엔진(최종)",
+   "run": 1,
+   "sec": 9.78,
+   "prompt_tokens": 10314,
+   "completion_tokens": 1590,
+   "score": {
+    "존재하지 않는 ID": [],
+    "양호·수동확인 항목을 취약으로 보고": [],
+    "관련성 낮은 사례 인용": [],
+    "취약 항목 누락": [],
+    "문장 속 금액": [],
+    "원본과 다른 금액": []
+   }
+  },
+  {
+   "scan": "SCAN-20261007-001",
+   "cond": "엔진(검증 전)",
+   "run": 2,
+   "sec": 9.5,
+   "prompt_tokens": 10314,
+   "completion_tokens": 1623,
+   "score": {
+    "존재하지 않는 ID": [],
+    "양호·수동확인 항목을 취약으로 보고": [],
+    "관련성 낮은 사례 인용": [],
+    "취약 항목 누락": [],
+    "문장 속 금액": [],
+    "원본과 다른 금액": []
+   }
+  },
+  {
+   "scan": "SCAN-20261007-001",
+   "cond": "엔진(최종)",
+   "run": 2,
+   "sec": 9.5,
+   "prompt_tokens": 10314,
+   "completion_tokens": 1623,
+   "score": {
+    "존재하지 않는 ID": [],
+    "양호·수동확인 항목을 취약으로 보고": [],
+    "관련성 낮은 사례 인용": [],
+    "취약 항목 누락": [],
+    "문장 속 금액": [],
+    "원본과 다른 금액": []
+   }
+  },
+  {
+   "scan": "SCAN-20261007-001",
+   "cond": "엔진(검증 전)",
+   "run": 3,
+   "sec": 9.51,
+   "prompt_tokens": 10314,
+   "completion_tokens": 1559,
+   "score": {
+    "존재하지 않는 ID": [],
+    "양호·수동확인 항목을 취약으로 보고": [],
+    "관련성 낮은 사례 인용": [],
+    "취약 항목 누락": [],
+    "문장 속 금액": [],
+    "원본과 다른 금액": []
+   }
+  },
+  {
+   "scan": "SCAN-20261007-001",
+   "cond": "엔진(최종)",
+   "run": 3,
+   "sec": 9.51,
+   "prompt_tokens": 10314,
+   "completion_tokens": 1559,
+   "score": {
+    "존재하지 않는 ID": [],
+    "양호·수동확인 항목을 취약으로 보고": [],
+    "관련성 낮은 사례 인용": [],
+    "취약 항목 누락": [],
+    "문장 속 금액": [],
+    "원본과 다른 금액": []
+   }
+  },
+  {
+   "scan": "SCAN-20261007-001",
+   "cond": "엔진(검증 전)",
+   "run": 4,
+   "sec": 9.2,
+   "prompt_tokens": 10314,
+   "completion_tokens": 1592,
+   "score": {
+    "존재하지 않는 ID": [],
+    "양호·수동확인 항목을 취약으로 보고": [],
+    "관련성 낮은 사례 인용": [],
+    "취약 항목 누락": [],
+    "문장 속 금액": [],
+    "원본과 다른 금액": []
+   }
+  },
+  {
+   "scan": "SCAN-20261007-001",
+   "cond": "엔진(최종)",
+   "run": 4,
+   "sec": 9.2,
+   "prompt_tokens": 10314,
+   "completion_tokens": 1592,
+   "score": {
+    "존재하지 않는 ID": [],
+    "양호·수동확인 항목을 취약으로 보고": [],
+    "관련성 낮은 사례 인용": [],
+    "취약 항목 누락": [],
+    "문장 속 금액": [],
+    "원본과 다른 금액": []
+   }
+  }
+ ],
+ "injection": {
+  "caught": {
+   "없는 취약점 ID": true,
+   "없는 법령 코드": true,
+   "없는 사례 ID": true,
+   "근거 없는 위험": false,
+   "문장 속 금액": true,
+   "없는 로드맵 단계": true,
+   "로드맵 누락": true,
+   "설명 누락": true
+  },
+  "warnings": [
+   "top_risks[0]: 존재하지 않는 finding_id 'SCAN-FAKE-99' 제거",
+   "top_risks[0]: 존재하지 않는 law_code 'PIPA-999' 제거",
+   "top_risks[0]: 존재하지 않는 case_id(이 위험의 인용 가능 후보가 아님) 'PIPC-2099-001' 제거",
+   "top_risks[0]: 인용 사례가 없어 최상위 후보 'PIPC-2023-008'(동일 결함 사례)를 코드가 연결",
+   "roadmap[0]: 알 수 없는 단계 '내년' 제거",
+   "roadmap: '주석 내 정보 누출'이 빠져 있어 '즉시' 단계에 코드가 추가",
+   "roadmap: '유추 가능한 비밀번호'이 빠져 있어 '즉시' 단계에 코드가 추가",
+   "roadmap: '낮은 복잡도의 비밀번호 정책'이 빠져 있어 '즉시' 단계에 코드가 추가",
+   "roadmap: '불충분한 인증 절차'이 빠져 있어 '즉시' 단계에 코드가 추가",
+   "roadmap: '타인 문의글 열람'이 빠져 있어 '즉시' 단계에 코드가 추가",
+   "roadmap: '타인 문의글 댓글 작성'이 빠져 있어 '즉시' 단계에 코드가 추가",
+   "roadmap: '취약한 비밀번호 복구 절차'이 빠져 있어 '즉시' 단계에 코드가 추가",
+   "headline: 문장에 금액이 들어 있음 → '3억 원' (금액은 템플릿이 채워야 함)",
+   "finding_notes: 'SCAN-20261007-001-AUTH-01-LOCALHOST-5000' 설명 누락 (보고서에는 빈칸으로 표시)",
+   "finding_notes: 'SCAN-20261007-001-PWRECOVERY-01-LOCALHOST-5000' 설명 누락 (보고서에는 빈칸으로 표시)",
+   "finding_notes: 'SCAN-20261007-001-IL-COMMENT-01-LOCALHOST-5000' 설명 누락 (보고서에는 빈칸으로 표시)",
+   "finding_notes: 'SCAN-20261007-001-W-02-LOCALHOST-5000' 설명 누락 (보고서에는 빈칸으로 표시)",
+   "finding_notes: 'SCAN-20261007-001-W-01-LOCALHOST-5000' 설명 누락 (보고서에는 빈칸으로 표시)",
+   "finding_notes: 'SCAN-20261007-001-W-05-LOCALHOST-5000' 설명 누락 (보고서에는 빈칸으로 표시)",
+   "finding_notes: 'SCAN-20261007-001-W-06-LOCALHOST-5000' 설명 누락 (보고서에는 빈칸으로 표시)"
+  ],
+  "after": {
+   "money_still_in_headline": true
+  }
+ },
+ "w99": {
+  "exit": "-",
+  "pdfs": [],
+  "stdout": "이번 실행에서는 생략 (진단과 무관한 시험, run_2026-10-07 결과 참고)"
+ }
+}
