@@ -20,5 +20,5 @@ DYLD_FALLBACK_LIBRARY_PATH=/opt/homebrew/lib .venv/bin/python ../../experiment/2
 ```
 
 - 실제 API를 호출하므로 비용이 들고, LLM 출력은 실행마다 조금씩 달라집니다.
-- `2026-10-07_live_scan`은 `vuln_assessment/scanner/output/legal_result.json`(gitignore 대상)이 필요해서, 먼저 `scanner/main.py`로 스캔을 실행해야 합니다.
+- `2026-10-07_live_scan`은 실험에 쓴 입력(`input/legal_result_SCAN-20261007-001.json`)을 함께 보관해 같은 입력으로 재현할 수 있습니다. `scanner/main.py`를 다시 실행하면 새 스캔 ID가 붙고 법령 매핑도 LLM이 다시 하므로 입력이 달라집니다.
 - 로그에 남은 파일 경로는 레포 기준 상대 경로로 바꿔 두었습니다.

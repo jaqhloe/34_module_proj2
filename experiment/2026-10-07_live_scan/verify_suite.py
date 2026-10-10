@@ -38,7 +38,7 @@ from openai import OpenAI  # noqa: E402
 load_dotenv(RE.parent / ".env")
 client = OpenAI()
 MODEL, TEMP, RUNS = "gpt-4o", 0.2, 5
-SCANS = [str(HERE.parents[1] / "vuln_assessment/scanner/output/legal_result.json")]  # 실제 웹사이트 스캔 결과 (SCAN-20261007-001)
+SCANS = [str(HERE / "input/legal_result_SCAN-20261007-001.json")]  # 실제 웹사이트 스캔 결과 (SCAN-20261007-001)
 PY = str(RE / ".venv/bin/python")
 ENV = {"DYLD_FALLBACK_LIBRARY_PATH": "/opt/homebrew/lib", "PATH": "/usr/bin:/bin", "HOME": str(Path.home())}
 
